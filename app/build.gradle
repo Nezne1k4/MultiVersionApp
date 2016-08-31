@@ -1,0 +1,118 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.github.captain_miao.multiversionapp"
+        minSdkVersion this.minSdkVersion
+        targetSdkVersion this.targetSdkVersion
+        versionCode this.versionCode
+        versionName this.versionName
+    }
+
+    signingConfigs {
+        debug {
+            // default
+        }
+        release {
+            storeFile file("/Users/captain_miao/.android/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            //signingConfig signingConfigs.debug
+
+            resValue "string", "runMode", "DEBUG"
+            buildConfigField "boolean", "isPrintLog", "true"
+
+            manifestPlaceholders = [
+                    CUSTOM_META_DATA_VALUE: "custom_value_debug"
+            ]
+        }
+
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources true
+            resValue "string", "runMode", "PRODUCTION"
+            buildConfigField "boolean", "isPrintLog", "false"
+
+            manifestPlaceholders = [
+                    CUSTOM_META_DATA_VALUE: "custom_value_release"
+            ]
+        }
+
+    }
+
+
+
+    productFlavors{
+        Test{
+            versionName "$defaultConfig.versionName" + ".test"
+            resValue "string", "app_name", "App-Test"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_test"
+            ]
+        }
+
+        Product{
+            resValue "string", "app_name", "App"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher"
+            ]
+        }
+    }
+
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // rename the apk
+            def file = output.outputFile;
+            def newName;
+            newName = file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk");
+
+            output.outputFile = new File(file.parent, newName.toLowerCase());
+        }
+
+        // from http://stackoverflow.com/a/33572140/703225
+        //Generate values Content Authority and Account Type used in Sync Adapter, Content Provider, Authenticator
+        //def valueAccountType = applicationId + '.account'
+        //def valueContentAuthority = applicationId + '.authority'
+
+        //generate fields in Resource string file generated.xml
+        //resValue "string", "content_authority", valueContentAuthority
+        //resValue "string", "account_type", valueAccountType
+
+        //generate fields in BuildConfig class
+        //buildConfigField "String", "ACCOUNT_TYPE", '"'+valueAccountType+'"'
+        //buildConfigField "String", "CONTENT_AUTHORITY", '"'+valueContentAuthority+'"'
+
+        //replace field ${valueContentAuthority} in AndroidManifest.xml
+        //mergedFlavor.manifestPlaceholders = [ valueContentAuthority: valueContentAuthority ]
+    }
+
+
+    lintOptions {
+        abortOnError false
+    }
+
+    // enable dataBinding
+    dataBinding {
+        enabled = true
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+
+        compile "com.android.support:appcompat-v7:${this.supportLibrariesVersion}"
+    }
+}

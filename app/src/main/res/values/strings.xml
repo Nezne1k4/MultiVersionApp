@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="custom_meta_data">customMetaData: %s</string>
+    <string name="package_name">packageName: %s</string>
+    <string name="run_mode">runMode: %s</string>
+    <string name="is_print_log">isPrintLog: %b</string>
+    <string name="version_name">versionName: %s</string>
+</resources>

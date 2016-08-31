@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.databinding.ObservableField"/>
+        <import type="com.github.captain_miao.multiversionapp.AppConstants"/>
+
+        <variable
+            name="packageName"
+            type="String"/>
+        <variable
+            name="customMetaData"
+            type="String"/>
+
+        <variable
+            name="runMode"
+            type="String"/>
+
+        <variable
+            name="isPrintLog"
+            type="boolean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.github.captain_miao.multiversionapp.MainActivity">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@{@string/package_name(packageName)}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@{@string/custom_meta_data(customMetaData)}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@{@string/run_mode(runMode)}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@{@string/is_print_log(AppConstants.isPrintLog)}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@{@string/is_print_log(AppConstants.isPrintLog)}"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@{@string/version_name(AppConstants.versionName)}"/>
+
+    </LinearLayout>
+</layout>

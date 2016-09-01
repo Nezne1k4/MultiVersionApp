@@ -10,6 +10,11 @@ android {
         targetSdkVersion this.targetSdkVersion
         versionCode this.versionCode
         versionName this.versionName
+
+        // property values
+        if (project.hasProperty('custom_a_property')) {
+            println project.getProperty('custom_a_property')
+        }
     }
 
     signingConfigs {
@@ -17,7 +22,7 @@ android {
             // default
         }
         release {
-            storeFile file("/Users/captain_miao/.android/debug.keystore")
+            storeFile file("${System.properties['user.home']}/.android/debug.keystore")
             storePassword "android"
             keyAlias "androiddebugkey"
             keyPassword "android"
@@ -115,4 +120,12 @@ android {
 
         compile "com.android.support:appcompat-v7:${this.supportLibrariesVersion}"
     }
+
+
+}
+
+task userHome << {
+    def userHome = ant.properties['user.home']
+    println userHome
+    println System.properties['user.home']
 }

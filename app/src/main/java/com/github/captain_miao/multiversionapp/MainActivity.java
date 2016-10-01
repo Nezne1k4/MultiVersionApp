@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             appInfo = this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             if(appInfo.metaData != null) {
-                mBinding.setPackageName(appInfo.metaData.getString("PACKAGE_NAME"));
+                mBinding.setPackageName(this.getPackageName());
                 mBinding.setCustomMetaData(appInfo.metaData.getString("CUSTOM_META_DATA"));
             } else {
                 mBinding.setCustomMetaData("");

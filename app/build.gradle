@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion this.compileSdkVersion
+    buildToolsVersion this.buildToolsVersion
 
     defaultConfig {
         applicationId "com.github.captain_miao.multiversionapp"
@@ -64,16 +64,16 @@ android {
         Test{
             versionName "$defaultConfig.versionName" + ".test"
             resValue "string", "app_name", "App-Test"
-            manifestPlaceholders = [
-                    appIcon: "@mipmap/ic_launcher_test"
-            ]
+            //manifestPlaceholders = [
+                    //appIcon: "@mipmap/ic_launcher_test"
+            //]
         }
 
         Product{
             resValue "string", "app_name", "App"
-            manifestPlaceholders = [
-                    appIcon: "@mipmap/ic_launcher"
-            ]
+            //manifestPlaceholders = [
+                    //appIcon: "@mipmap/ic_launcher"
+            //]
         }
     }
 
@@ -113,6 +113,18 @@ android {
     // enable dataBinding
     dataBinding {
         enabled = true
+    }
+
+
+    dexOptions {
+        jumboMode = true
+        preDexLibraries = false
+        javaMaxHeapSize "2048M"
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+
     }
 
     dependencies {

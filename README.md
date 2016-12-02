@@ -95,3 +95,10 @@ android {
 //or 
 ./gradlew build
 ```
+
+## for freeline
+### first: Android Studio install freeline
+### second: run:
+```
+./gradlew initFreeline -Pmirror
+```

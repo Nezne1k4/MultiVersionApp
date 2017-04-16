@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.antfortune.freeline'
 
 android {
     compileSdkVersion this.compileSdkVersion
@@ -78,12 +77,6 @@ android {
         }
     }
 
-
-    // for freeline
-    freeline {
-        hack true
-        productFlavor 'AppTest'
-    }
 
     applicationVariants.all { variant ->
         variant.outputs.each { output ->

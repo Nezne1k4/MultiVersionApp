@@ -39,37 +39,69 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="@{@string/package_name(packageName)}"/>
+            android:text="@{@string/package_name(packageName)}"
+        android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="@{@string/custom_meta_data(customMetaData)}"/>
+            android:text="@{@string/custom_meta_data(customMetaData)}"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="@{@string/run_mode(runMode)}"/>
+            android:text="@{@string/run_mode(runMode)}"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="@{@string/is_print_log(AppConstants.isPrintLog)}"/>
+            android:text="@{@string/is_print_log(AppConstants.isPrintLog)}"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="@{@string/is_print_log(AppConstants.isPrintLog)}"/>
+            android:text="@{@string/is_print_log(AppConstants.isPrintLog)}"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
             android:text="@{@string/version_name(AppConstants.versionName)}"/>
+        <TextView
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textColor="#FFFF0000"
+            android:text="It's red"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textColor="#FF00FF00"
+            android:text="It's green"/>
+
+        <TextView
+            android:id="@+id/tv_stocks_red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="It's red"/>
+
+        <TextView
+            android:id="@+id/tv_stocks_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="It's green"/>
 
     </LinearLayout>
 </layout>

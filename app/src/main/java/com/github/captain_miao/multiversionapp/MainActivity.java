@@ -3,6 +3,7 @@ package com.github.captain_miao.multiversionapp;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -32,5 +33,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mBinding.setRunMode(getString(R.string.runMode));
+
+        mBinding.tvStocksRed.setTextColor(colorSchemes[0][1]);
+        mBinding.tvStocksGreen.setTextColor(colorSchemes[0][0]);
     }
+    private static final int[][] colorSchemes = new int[][]{
+            {
+                    Color.GREEN, Color.RED  //green red
+            },
+    };
 }

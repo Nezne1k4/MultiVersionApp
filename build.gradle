@@ -3,8 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath 'com.antfortune.freeline:gradle:0.8.2'
+        classpath 'com.android.tools.build:gradle:2.3.1'
     }
 }
 
@@ -15,9 +14,9 @@ allprojects {
 }
 
 subprojects {
-    ext.compileSdkVersion = 24
-    ext.buildToolsVersion = '24.0.2'
-    ext.supportLibrariesVersion = '24.2.1'
+    ext.compileSdkVersion = 25
+    ext.buildToolsVersion = '25.0.1'
+    ext.supportLibrariesVersion = '25.1.0'
     ext.minSdkVersion = '14'
     ext.targetSdkVersion = '24'
 
